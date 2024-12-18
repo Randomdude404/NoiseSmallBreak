@@ -202,7 +202,7 @@ else
 		    	gamepad_set_vibration(0, 0.7, 0.7);
 	obj_player.alarm[4] = 3
 		player.state = states.bounce;
-		player.sprite_index = spr_player_bounce;
+		player.sprite_index = spr_bounce;
 		player.movespeed = 2;
 		player.vsp = -20;
 		hitbuffer = 10
@@ -246,6 +246,11 @@ if distance_to_object(obj_player)>= 1200
 
 instance_destroy()
 }
-
+if sprite_index = spr_noisette_idle
+{
+	image_speed = 0.35
+}
+else
+	image_speed = 0.35
 if hitbuffer >= 0
     hitbuffer -= 0.1

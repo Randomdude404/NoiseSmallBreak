@@ -1,12 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
+image_speed = 0.35
 if room == room_editor && global.play == 0
    return;
 if instance_exists(obj_player)
 switch state
 {
    case 0:
-   if (abs((x - obj_player.x)) > 30)
+   if (abs((x - obj_player.x)) > 30) && floor(image_index) == 14
     image_xscale = sign((obj_player.x - x))
 	if !(place_meeting(x, y+vspeed, obj_solid) || place_meeting(x, y+vspeed, obj_platform))
 	   vspeed += 1
@@ -18,8 +19,8 @@ switch state
 		{
 			if !collision_line(x, y-5, obj_player.x, obj_player.y-5, obj_solid, false, false)
 			{
-				other.alarm[0] = 34
-				other.alarm[2] = 20
+				other.alarm[0] = 44
+				other.alarm[2] = 30
 				other.thingy = 1
 			}
 		}
@@ -27,7 +28,7 @@ switch state
         break
 	case 1:
 	 if (abs((x - obj_player.x)) > 30)
-    image_xscale = sign((obj_player.x - x))
+	  image_xscale = sign((obj_player.x - x))
 	
 	if ds_queue_size(queue) >= queuerandom
 	{
@@ -52,7 +53,7 @@ switch state
 		ds_queue_enqueue(queue, obj_player.x, obj_player.y);
 	image_speed = 0.35
 	sprite_index = spr_eggopp_move
-	if distance_to_object(obj_player) > 750
+	if distance_to_object(obj_player) > 750 && (scr_solid(x, bbox_bottom+1)) && !(scr_solid(x, y))
 	{
 		state = 0
 		sprite_index = spr_eggopp_idle
@@ -61,7 +62,7 @@ switch state
 		thingy3 = 0
 		thingy4 = 0
 		about_to_detect = 0
-		image_speed = 0.7
+		image_speed = 0.35
 		ds_queue_clear(queue);
 	}
 	break

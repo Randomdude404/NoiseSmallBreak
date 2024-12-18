@@ -1,0 +1,1 @@
+text = "Also, take note that Mr. Orange can't dive nor longjump (he will fly instead when trying to longjump), and that Not All His Sprites Are Yet Done!"

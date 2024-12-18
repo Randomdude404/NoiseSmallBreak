@@ -10,4 +10,4 @@ thingy = 1
 thingy2 =1
 touched = 0
 
-objects = 11
+objects = 13

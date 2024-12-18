@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_planetconnector",
-  "bbox_bottom": 371,
-  "bbox_left": 586,
-  "bbox_right": 770,
+  "bbox_bottom": 369,
+  "bbox_left": 582,
+  "bbox_right": 781,
   "bbox_top": 339,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"204802bd-72cd-49af-8ae3-1a37c9e2eb55",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6b7ca710-d2fc-479c-b110-81bd9a3e2cf1",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 720,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0736ed49-515e-4205-80ea-7a6ebc6eddba","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"fb872bb0-0118-4bf1-98aa-c49e86d5da39","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 4,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"204802bd-72cd-49af-8ae3-1a37c9e2eb55","path":"sprites/spr_planetconnector/spr_planetconnector.yy",},},},"Disabled":false,"id":"a5259a80-ba65-4f9b-a330-fd2396c826c8","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"6b7ca710-d2fc-479c-b110-81bd9a3e2cf1","path":"sprites/spr_planetconnector/spr_planetconnector.yy",},},},"Disabled":false,"id":"970e72d6-ef4b-4e97-881a-7683310bd3ed","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

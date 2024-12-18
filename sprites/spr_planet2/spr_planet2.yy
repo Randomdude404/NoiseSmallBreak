@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_planet2",
-  "bbox_bottom": 125,
-  "bbox_left": 20,
-  "bbox_right": 155,
-  "bbox_top": 12,
+  "bbox_bottom": 157,
+  "bbox_left": 34,
+  "bbox_right": 169,
+  "bbox_top": 16,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f3d02069-4287-4193-8f7f-fea82c785337",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"72c2a3db-0e23-4ba8-af7c-7e0247716a16",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 156,
+  "height": 200,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"b634b91a-e35a-4555-8bb7-cbed215df8b6","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3e2b2103-e05e-4f45-85e6-76ed37b46605","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 9,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f3d02069-4287-4193-8f7f-fea82c785337","path":"sprites/spr_planet2/spr_planet2.yy",},},},"Disabled":false,"id":"4499fc85-7c1e-4f45-9d0c-cc170a1044ee","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"72c2a3db-0e23-4ba8-af7c-7e0247716a16","path":"sprites/spr_planet2/spr_planet2.yy",},},},"Disabled":false,"id":"a3faf7d5-c5de-4bc6-b385-251d7c783f4a","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 165,
+  "width": 200,
 }

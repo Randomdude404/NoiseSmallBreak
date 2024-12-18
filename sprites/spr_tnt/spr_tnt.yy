@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_tnt",
-  "bbox_bottom": 63,
+  "bbox_bottom": 99,
   "bbox_left": 0,
-  "bbox_right": 63,
+  "bbox_right": 99,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9e0f1cda-a288-4613-8b7f-f7ebab4a5cd6",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"57e61d2d-e2ab-4ec8-a5a3-a6f2b360b410",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 64,
+  "height": 100,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"12285c0b-0a50-441a-b452-439858245f4a","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"60483bbe-c5ee-4cd0-a033-4e2d54de804c","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9e0f1cda-a288-4613-8b7f-f7ebab4a5cd6","path":"sprites/spr_tnt/spr_tnt.yy",},},},"Disabled":false,"id":"1d4df0db-3752-42a6-888a-1ce128d45dde","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"57e61d2d-e2ab-4ec8-a5a3-a6f2b360b410","path":"sprites/spr_tnt/spr_tnt.yy",},},},"Disabled":false,"id":"a4e0c55f-dc29-4e97-8768-d4a71cd24c12","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
@@ -70,5 +70,5 @@
   },
   "type": 0,
   "VTile": false,
-  "width": 64,
+  "width": 100,
 }

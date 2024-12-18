@@ -16,6 +16,6 @@ with obj_player
 			
 			state = states.slide;
 			image_index = 0;
-			sprite_index = spr_player_forkstart;
+			sprite_index = spr_forkstart;
 }
 

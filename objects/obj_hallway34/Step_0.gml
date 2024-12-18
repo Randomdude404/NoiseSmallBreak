@@ -46,7 +46,7 @@ if sprite_index = spr_shuttle_move && backToShuttle == 1 && scr_solid(x, y)
 	
 		state = states.bounce;
 		
-		sprite_index = spr_player_bounce;
+		sprite_index = spr_bounce;
 		vsp = -16;
 	}
 	instance_create(x, y, obj_explosion)

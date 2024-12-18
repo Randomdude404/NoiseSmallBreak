@@ -3,7 +3,7 @@ if vspeed >= 10
 if sprite_index = spr_eggopp_dead || sprite_index = spr_bomb
     image_angle +=randomspeed
 	
-if sprite_index == spr_bomb && (scr_solid(x, y-15) || place_meeting(x, y-15, obj_eggopp)) && !place_meeting(x, y, obj_destroyable) && !place_meeting(x, y, obj_piggy_bounceblock)  && !place_meeting(x, y-15, obj_piggydestroyable)
+if sprite_index == spr_bomb && (scr_solid(x, y+vspeed) || place_meeting(x, y+vspeed, obj_eggopp)) && !place_meeting(x, y+vspeed, obj_destroyable) && !place_meeting(x, y+vspeed, obj_piggy_bounceblock)  && !place_meeting(x, y+vspeed, obj_piggydestroyable)
 {
    instance_create(x, y, obj_explosion)
   

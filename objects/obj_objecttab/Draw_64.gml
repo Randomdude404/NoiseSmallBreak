@@ -4,40 +4,42 @@ draw_self()
 
 if open == 1
 {
-	var sprites = ["spr_wall", "spr_slope", "spr_eggopp_idle", "spr_convexslope", "spr_collect", "spr_destroyable", "spr_shuttle", "spr_doorC", "spr_doorB", "spr_plug", "spr_hallway"]
+	var _row = 0
+	var _y_i = 0
+	var sprites = []
+	var _objects = obj_editor.objects
+	for (var i = 0; i < array_length(_objects); i++)
+	{
+		if (object_get_sprite(asset_get_index(_objects[@ i])) != -1)
+			array_push(sprites, object_get_sprite(asset_get_index(_objects[@ i])))
+	}
+	//show_debug_message(sprites)
 	for (var i = 0; i < array_length(sprites); i++)
 	{
+		if (i mod 10 == 0 && i != 0)
+		{
+			_row += 1
+			_y_i = 0
+		}
+		var _y = 50+64*_y_i
+		var _yy = 64*_y_i
 		draw_set_color(c_black)
-		if (i != 10)
-		{
-			draw_rectangle(x, y+50+64*i, xx, yy+64*i, false)
-			draw_set_color(c_white)
-			draw_rectangle(x, y+50+64*i, xx, yy+64*i, true)
-		}
-		else
-		{
-			draw_rectangle(x+64, y+50+64*(i-1), xx+64, yy+64*(i-1), false)
-			draw_set_color(c_white)
-			draw_rectangle(x+64, y+50+64*(i-1), xx+64, yy+64*(i-1), true)
-		}
+		draw_rectangle(x+_row*64, y+_y, xx+_row*64, yy+_yy, false)
+		draw_set_color(c_white)
+		draw_rectangle(x+_row*64, y+_y, xx+_row*64, yy+_yy, true)
+		
 		var _xscalesmall = 1
 		var _yscalesmall = 1
-		if sprite_get_width(asset_get_index(array_get(sprites, i))) > 64
+		if sprite_get_width(array_get(sprites, i)) > 64
 		{
 			_xscalesmall = 2
 		}
-		if sprite_get_height(asset_get_index(array_get(sprites, i))) > 64
+		if sprite_get_height(array_get(sprites, i)) > 64
 		{
 			_yscalesmall = 2
 		}
-		if (i != 10)
-		{
-			draw_sprite_ext(asset_get_index(array_get(sprites, i)),0,xx/2, yy/2+64*i, 1/_xscalesmall, 1/_yscalesmall, image_angle, image_blend, image_alpha)
-		}
-		else
-		{
-			draw_sprite_ext(asset_get_index(array_get(sprites, i)),0,xx/2+64, yy/2+64*(i-1), 1/_xscalesmall, 1/_yscalesmall, image_angle, image_blend, image_alpha)
-		}
+		draw_sprite_ext(array_get(sprites, i),0,xx/2+_row*64, yy/2+64*_y_i, 1/_xscalesmall, 1/_yscalesmall, image_angle, image_blend, image_alpha)
+		_y_i += 1
 	}
 	/*
 	thingy = 0

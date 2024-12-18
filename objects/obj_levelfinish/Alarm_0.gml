@@ -1,13 +1,21 @@
 /// @description Insert description here
 // You can write your code in this editor
-if global.play == 1
+if global.play == 1 && room = room_customlevel
 {
-with instance_create_depth(obj_player.x, obj_player.y, 100, obj_hallway)
-{
-	targetRoom = room_minimenu
-	targetDoor = "A"
-	visible = false
+	game_restart()
 }
+else if global.play == 1 && room = room_editor
+{
+	if global.play == 1
+	{
+	   global.play = 0
+	   with (obj_editor)
+	   {
+		   filename = "Backup.bblv"
+		   scr_loadlevel()
+	   }
+	}
+
 }
 
 

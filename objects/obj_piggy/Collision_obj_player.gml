@@ -12,6 +12,7 @@ if visible
 			hspeed = (21 * (obj_player.xscale))
 			vspeed = - 10
 			sprite_index = other.sprite_index
+			mask_index = spr_bomb_hitbox
 		}
 	}
 	else

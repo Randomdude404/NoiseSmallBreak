@@ -29,7 +29,7 @@ if timer >= 59.9
 }
 else 
 	{
-	if timer >= 170
+	if timer >= 230
 	{
 	if global.timeattack
 	{

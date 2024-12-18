@@ -16,7 +16,7 @@ if !hp <= 0 && !(room == room_editor && global.play == 0) && !instance_exists(ob
 	draw_rectangle(0,0, room_width,room_height, false);
 	
 	draw_set_alpha(1);
-	draw_healthbar(19, 124, 310, 158, (movespeed / 13) * 100, c_white, c_white, c_white, 0, false, false);
+	draw_healthbar(19, 124, 310, 158, (movespeed / 16) * 100, c_white, c_white, c_white, 0, false, false);
 	gpu_set_blendenable(true);
 	gpu_set_colorwriteenable(true,true,true,true);
 	
@@ -29,17 +29,17 @@ if !hp <= 0 && !(room == room_editor && global.play == 0) && !instance_exists(ob
 	draw_sprite(spr_speedbar_bar, 0, 192, 128)
 	
 	var _sprite = spr_player_idle
-	var _noiseicon_x = (movespeed / 13) * 256
+	var _noiseicon_x = (movespeed / 16) * 256
 	if _noiseicon_x > 256
 	   _noiseicon_x = 256
 	if lasthealthbar_x < _noiseicon_x
-		_sprite = spr_player_mach3
+		_sprite = spr_mach3
 	if lasthealthbar_x > _noiseicon_x
-		_sprite = spr_player_crouchslip
+		_sprite = spr_crouchslip
 	if lasthealthbar_x == _noiseicon_x && _noiseicon_x != 0
-		_sprite = spr_player_mach3
+		_sprite = spr_mach3
 	else if _noiseicon_x == 0
-		_sprite = spr_player_idle
+		_sprite = spr_idle
 	lasthealthbar_x = _noiseicon_x
 	draw_sprite(_sprite, noiseicon_speed, 32 + _noiseicon_x, 112)
 	draw_sprite(spr_teacup, 0, 128+42, 152)
@@ -53,7 +53,7 @@ if !hp <= 0 && !(room == room_editor && global.play == 0) && !instance_exists(ob
 		   draw_set_color(c_red)
 		}
 		else
-		   if timer >= 160
+		   if timer >= 220
 		   draw_set_color(c_red)
 	}
 

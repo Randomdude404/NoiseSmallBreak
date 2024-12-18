@@ -6,7 +6,10 @@ if instance_exists(inst)
 	if inst.sprite_index == spr_bomb
 		instance_destroy()
 }
-
+if (place_meeting(x-(obj_player.xscale), y, obj_player))
+{
+	obj_player.pigtimer = 0
+}
 
 
 

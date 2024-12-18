@@ -2,7 +2,7 @@
 // You can write your code in this editor
 with obj_player
 {
-	if room == moonlight_4
+	if room == moonlight_8
 	{
 	   timerend = 1
 	 //  ds_list_clear(global.saveroom);

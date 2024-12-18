@@ -22,8 +22,8 @@ for (var i = 0; i < array_length(lay_arr); i++)
             layer_y(lay, (_cam_y * -0.1))
             break
 		case "Assets_Parrallax3":
-          layer_x(lay, _cam_x+400)
-            layer_y(lay, _cam_y)
+			layer_x(lay, _cam_x*0.75)
+            layer_y(lay, _cam_y+185)
          
             break
 		case "Assets_Parrallax0Scroll":

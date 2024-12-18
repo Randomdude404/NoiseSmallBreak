@@ -13,7 +13,7 @@ if place_meeting(x, y, obj_player) && obj_player.key_down
 	var _sound = audio_play_sound(sfx_scream, 100, 0)
 	with instance_create(obj_player.x, obj_player.y, obj_debris)
 	{
-		sprite_index = spr_player_stopping
+		sprite_index = spr_stopping
 		hspeed = -12
 	}
 	obj_player.alarm[5] = 100

@@ -147,7 +147,7 @@ switch state
 				sound_play_3d(sfx_wallslide, x, y);
 			
 				state = states2.wallslide;
-				sprite_index = spr_player_wallslide;
+				sprite_index = spr_wallslide;
 				grounded = false;
 				movespeed = 0;
 				
@@ -156,7 +156,7 @@ switch state
 			movespeed = 0;
 		}
 		
-		if sprite_index == spr_player_stop
+		if sprite_index == spr_stop
 		{
 			if image_index >= image_number - 1
 			{
@@ -164,7 +164,7 @@ switch state
 				sprite_index = spr_player_idle;
 			}
 		}
-		else if sprite_index == spr_player_turn
+		else if sprite_index == spr_turn
 		{
 			if image_index >= image_number - 1
 				sprite_index = spr_noisette_move;
@@ -211,7 +211,7 @@ switch state
 			}
 			
 			xscale = move;
-			if sprite_index != spr_noisette_move && sprite_index != spr_player_runland && sprite_index != spr_player_turn
+			if sprite_index != spr_noisette_move && sprite_index != spr_runland && sprite_index != spr_turn
 			{
 				image_index = 0;
 				sprite_index = spr_noisette_move;
@@ -255,7 +255,7 @@ switch state
 					jumpclouds = 10;
 				}
 				else
-					sprite_index = spr_player_jump;
+					sprite_index = spr_jump;
 			
 		}
 		
@@ -302,43 +302,43 @@ switch state
 				spd = 0.1;
 			
 			movespeed = Approach(movespeed, 0, move == 0 ? 0.1 : 0.4);
-			if movespeed == 0 && move != 0 && sprite_index != spr_player_backflip && sprite_index != spr_player_backflipfall
+			if movespeed == 0 && move != 0 && sprite_index != spr_backflip && sprite_index != spr_backflipfall
 				xscale = move;
 		}
 		else if movespeed < 10
 		{
 			var spd = 0.4;
-			if sprite_index == spr_player_backflip
+			if sprite_index == spr_backflip
 				spd = 0.2;
 			movespeed = Approach(movespeed, 10, spd);
 		}
 		
-		if sprite_index == spr_player_glidejump && vsp >= 0
+		if sprite_index == spr_glidejump && vsp >= 0
 		{
 			image_index = 0;
-			sprite_index = spr_player_glidefallstart;
+			sprite_index = spr_glidefallstart;
 		}
 		
 		if image_index >= image_number - 1
 		{
 			switch sprite_index
 			{
-				case spr_player_jump:
+				case spr_jump:
 					sprite_index = spr_noisette_move;
 					break;
-				case spr_player_glidejumpstart:
-					sprite_index = spr_player_glidejump;
+				case spr_glidejumpstart:
+					sprite_index = spr_glidejump;
 					break;
-				case spr_player_glidefallstart:
-					sprite_index = spr_player_glidefall;
+				case spr_glidefallstart:
+					sprite_index = spr_glidefall;
 					break;
 				case spr_noisette_move:
 					sprite_index = spr_noisette_move;
 					break;
-				case spr_player_backflip:
-					sprite_index = spr_player_backflipfall;
+				case spr_backflip:
+					sprite_index = spr_backflipfall;
 					break;
-				case spr_player_runland:
+				case spr_runland:
 					sprite_index = spr_noisette_move;
 					break;
 			}
@@ -364,7 +364,7 @@ switch state
 				sound_play_3d(sfx_wallslide, x, y);
 			
 				state = states2.wallslide;
-				sprite_index = spr_player_wallslide;
+				sprite_index = spr_wallslide;
 				vsp = min(vsp, 0);
 			}
 		}
@@ -389,7 +389,7 @@ switch state
 		}
 		vsp = min(vsp, 8);
 		
-		sprite_index = vsp > 0 ? spr_player_wallslidedown : spr_player_wallslide;
+		sprite_index = vsp > 0 ? spr_wallslidedown : spr_wallslide;
 
 		
 		if !place_meeting(x + xscale, y, obj_solid) or move == -xscale
@@ -407,7 +407,7 @@ switch state
 			movespeed = 10;
 			state = states2.jump;
 			audio_play_sound(sfx_boing, 0, false, 1.2)
-			sprite_index = spr_player_bounce;
+			sprite_index = spr_bounce;
 			vsp = -14;
 		}
 		break;
@@ -420,16 +420,16 @@ switch state
 			xscale = xscale * -1
 			movespeed -= 3
 		}
-		if sprite_index == spr_player_forkstart && image_index >= image_number - 1
-			sprite_index = spr_player_crouchslip;
+		if sprite_index == spr_forkstart && image_index >= image_number - 1
+			sprite_index = spr_crouchslip;
 		if grounded
 		{
-			if sprite_index == spr_player_dive
+			if sprite_index == spr_dive
 			{
 				sound_play_3d(sfx_land, x, y);
 				
 				state = states2.normal;
-				sprite_index = spr_player_runland;
+				sprite_index = spr_runland;
 				image_index = 0;
 			}
 			else
@@ -451,7 +451,7 @@ switch state
 					create_particle(x, y, spr_highjumpcloud2);
 				
 					jumpstop = false;
-					sprite_index = spr_player_longjump;
+					sprite_index = spr_longjump;
 					image_index = 0;
 					movespeed += 2
 					state = states2.jump;
@@ -466,7 +466,7 @@ switch state
 			sound_play_3d(sfx_wallslide, x, y);
 			
 			state = states2.wallslide;
-			sprite_index = spr_player_wallslide;
+			sprite_index = spr_wallslide;
 		}
 		break;
 	
@@ -561,7 +561,7 @@ if place_meeting(x, y, obj_player) && hitbuffer <= 0
 		    	gamepad_set_vibration(0, 0.7, 0.7);
 	obj_player.alarm[4] = 3
 		player.state = states.bounce;
-		player.sprite_index = spr_player_bounce;
+		player.sprite_index = spr_bounce;
 		player.movespeed = 2;
 		player.vsp = -20;
 		hitbuffer = 10

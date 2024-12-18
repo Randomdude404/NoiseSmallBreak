@@ -13,6 +13,8 @@ controllerConnectedPopup = 0
 controllerConnected = 0
 cheese_thing = 0
 
+
+
 lasthealthbar_x = 0
 noiseicon_speed = 0
 _player1x = 0
@@ -38,10 +40,12 @@ enum states
 	wallslide,
 	bounce,
 	actor,
-	hitstun
+	hitstun,
+	fly,
+	pound
 }
 #macro mach2_time 30
-
+character = 0;
 depth = -6;
 alarm[0] = room_speed * 0.1
 global.coop = 0
@@ -119,7 +123,7 @@ scr_hurtplayer = function()
 	hsp = xscale * -6;
 	vsp = -10;
 	state = states.hurt;
-	sprite_index = spr_player_hurt;
+	sprite_index = spr_hurt;
 }
 
 // effects
@@ -154,3 +158,5 @@ set_machsnd = function(sound)
 	else
 		machsnd = noone;
 }
+
+scr_characterspr()

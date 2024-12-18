@@ -8,15 +8,19 @@ var xx = mouse_x div 32
 var yy =mouse_y div 32
 if global.play == 1
 {
-   audio_pause_sound(mu_secret)
+   audio_pause_sound(mu_editor)
    if !audio_is_playing(asset_get_index(song))
    audio_play_sound(asset_get_index(song), 0, 1)
+   with (obj_doorX)
+		visible = false
 }
 if global.play == 0
 {
 	
-		 audio_stop_sound(asset_get_index(song))
-   audio_resume_sound(mu_secret)
+	audio_stop_sound(asset_get_index(song))
+   audio_resume_sound(mu_editor)
+   with (obj_doorX)
+		visible = true
   
 }
 if global.play == 0
@@ -63,15 +67,12 @@ for (var i = 0; i < 6; i += 1)
 	    
 	
 }
-var ob = obj_objecttab
-  if ((point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_objecttab.x, obj_objecttab.y+50, obj_objecttab.xx, obj_objecttab.yy+576)) || (point_in_rectangle(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0),ob.x+64, ob.y+50+64*(10-1), ob.xx+64, ob.yy+64*(10-1)))) && obj_objecttab.open == 1
-     touching2 = 1
-else
-   touching2=0
 if mouse_check_button(mb_left) && !keyboard_check(vk_alt)
 {
 	if !touching && !touching2
 	{
+	 if selected != noone
+	    selected.image_blend = c_white
 	 selected = noone
      with instance_create(xx, yy , select)
 	 {
@@ -93,13 +94,16 @@ if keyboard_check_pressed(vk_right)
 	if selected != noone
 	{
 		
-	if !keyboard_check(vk_shift)
-	{
-	   selected.x += 32
-	}
-	else
-	   selected.image_xscale += 1
-	   
+		if !keyboard_check(vk_shift)
+		{
+		   selected.x += 32
+		}
+		else
+		{
+		   selected.image_xscale += 1
+		   if (selected.image_xscale == 0)
+				  selected.image_xscale += 1
+		} 
 	}
 }
 if keyboard_check_pressed(vk_left)
@@ -108,12 +112,16 @@ if keyboard_check_pressed(vk_left)
 	if selected != noone
 	{
 		
-	if !keyboard_check(vk_shift)
-	{
-	   selected.x -= 32
-	}
-	else
-	   selected.image_xscale -= 1
+		if !keyboard_check(vk_shift)
+		{
+		   selected.x -= 32
+		}
+		else
+		{
+		   selected.image_xscale -= 1
+		   if (selected.image_xscale == 0)
+			  selected.image_xscale -= 1
+		}
 	   
 	}
 }
@@ -123,12 +131,21 @@ if keyboard_check_pressed(vk_up)
 	if selected != noone
 	{
 		
-	if !keyboard_check(vk_shift)
-	{
-	   selected.y -= 32
-	}
-	else
-	   selected.image_yscale -= 1
+		if !keyboard_check(vk_shift)
+		{
+		   selected.y -= 32
+		}
+		else
+		{
+			if selected.object_index != obj_hallway34
+			{
+				
+					selected.image_yscale -= 1
+					if (selected.image_yscale == 0)
+						selected.image_yscale -= 1
+			}
+			
+		}
 	   
 	}
 }
@@ -145,7 +162,11 @@ if keyboard_check_pressed(vk_down)
 	else
 	{
 		if selected.object_index != obj_hallway34
+		{
 				selected.image_yscale += 1
+				if (selected.image_yscale == 0)
+						selected.image_yscale += 1
+		}
 	    else
 		    selected.targetDoorIndex += 1
 	   
@@ -156,7 +177,7 @@ if keyboard_check_pressed(vk_down)
 
 if mouse_check_button(mb_left) && keyboard_check(vk_alt)
 {
-	 	var inst = noone;
+	var inst = noone;
     if selected != noone
 	    selected.image_blend = c_white
 	with (all) {
@@ -166,14 +187,17 @@ if mouse_check_button(mb_left) && keyboard_check(vk_alt)
 	}
     if inst != noone
 	{
-	   selected = inst
-	selected.image_blend = c_red
+		if inst != obj_noisette && object_get_parent(inst) != obj_editorobject
+		{
+		   selected = inst
+		   selected.image_blend = c_red
+		}
 	   
 	}
 }
 if keyboard_check_pressed(ord("E"))
 {
-	background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", background_tint)
+	background_tint2 = get_string("Set BG Color (see Editor Guide for refrence)", string(background_tint))
 	if background_tint2 != "" &&  background_tint2 != undefined &&  background_tint2 != noone
 		background_tint = background_tint2
 }
@@ -182,12 +206,18 @@ if keyboard_check_pressed(ord("Q"))
 	var _song = get_string("Song?", song)
 	if asset_get_index(_song) != -1 && asset_get_index(_song) != noone
 	   song = _song
+	 else
+		var _bruh = get_string("Song doesn't exist.", "")
 	
 }
 if keyboard_check_pressed(ord("R"))
 {
-	room_width = real(get_string("Room width?", string(room_width)))
-	room_height = real(get_string("Room height?", string(room_height)))
+	var _width = real(get_string("Room width?", string(room_width)))
+	var _height = real(get_string("Room height?", string(room_height)))
+	if is_real(_width)
+		room_width = _width
+	if is_real(_height)
+		room_width = _height
 
 }
    if mouse_check_button(mb_right)
@@ -205,7 +235,7 @@ if keyboard_check_pressed(ord("R"))
 	   selected = noone
 	}
 	}
-var objects = ["obj_solid", "obj_slope", "obj_eggopp", "obj_convexslope", "obj_collect", "obj_destroyable", "obj_hallway34", "obj_doorC", "obj_doorB", "obj_spike", "obj_levelfinish"]
+
 if keyboard_check_pressed(ord("L"))
 if selectnumber < array_length(objects) - 1
      selectnumber+=1
@@ -307,12 +337,16 @@ if keyboard_check_pressed(vk_enter)
    global.play = 1
    obj_player.timer = 0
    obj_player.timerend = 0
+   if selected != noone
+	    selected.image_blend = c_white
    selected = noone
    obj_player.x = obj_doorA.x
      obj_player.y = obj_doorA.y - 40
 }
 if keyboard_check_pressed(vk_escape)
 {
+	if selected != noone
+	    selected.image_blend = c_white
 	if global.play == 1
 	{
 	   global.play = 0
@@ -362,9 +396,12 @@ if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_
    global.play = 1
    obj_player.timer = 0
     obj_player.timerend = 0
+	if selected != noone
+	    selected.image_blend = c_white
     selected = noone
    obj_player.x = obj_doorA.x
      obj_player.y = obj_doorA.y - 40
+	
   }
 if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_roomsizehitbox))
   {
