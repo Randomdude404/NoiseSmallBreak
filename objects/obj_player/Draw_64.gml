@@ -67,7 +67,33 @@ if !hp <= 0 && !(room == room_editor && global.play == 0) && !instance_exists(ob
 	draw_text(150+20, 185, string(global.collect) + "/20");
 	draw_set_halign(fa_left)
 	//draw_sprite_ext(spr_teacup,0, 32 + (78 * (hp +1)), 16, 1.2, 1.2, image_angle, image_blend, 1)
-
+	
+	var _shakex = random_range(-1, 1) * (50 - global.combotime) / 10
+	var _shakey = random_range(-1, 1) * (50 - global.combotime) / 10
+	var _shake = 0
+	if (global.combotime < 50)
+		_shake = 1
+	if (!_shake)
+	{
+		_shakex = 0
+		_shakey = 0
+	}
+	
+	if (global.combo > 0)
+	{
+		//draw_healthbar(1088+_shakex, 96+_shakey, 1152+_shakex, 128+_shakey, global.combotime, c_black, c_white, c_white, 0, 1, 1)
+		draw_set_halign(fa_center)
+		global.combotime = clamp(global.combotime, 0, 100)
+		var _i = (global.combotime / 100) * 4
+		draw_sprite(spr_cookie, _i, 1056+_shakex, 96+_shakey)
+	
+		draw_set_font(combofont)
+		if (obj_camera.shake)
+			draw_text(1056 + random_range(obj_camera.shakestrength * -1, obj_camera.shakestrength), 64+ random_range(obj_camera.shakestrength * -1, obj_camera.shakestrength), "X"+string(global.combo))
+		else
+			draw_text(1056, 64, "X"+string(global.combo))
+	}
+	draw_set_halign(fa_left)
 }
 if global.timeattack
 {

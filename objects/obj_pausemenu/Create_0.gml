@@ -5,7 +5,7 @@ bg = {
 	y: 0,
 	visible: false,
 	speed: 1,
-	spr: spr_minimenu_bg,
+	spr: spr_BLACK,
 	index: 0,
 	image_alpha: 1,
 };

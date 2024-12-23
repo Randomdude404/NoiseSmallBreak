@@ -13,6 +13,7 @@ if global.play == 1
    audio_play_sound(asset_get_index(song), 0, 1)
    with (obj_doorX)
 		visible = false
+   instance_activate_object(obj_noisette)
 }
 if global.play == 0
 {
@@ -21,6 +22,7 @@ if global.play == 0
    audio_resume_sound(mu_editor)
    with (obj_doorX)
 		visible = true
+	instance_deactivate_object(obj_noisette)
   
 }
 if global.play == 0

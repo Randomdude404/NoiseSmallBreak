@@ -42,8 +42,8 @@ function scr_characterspr(){
 			spr_glidejump = spr_playerO_fly
 			spr_glidefallstart = spr_playerO_fly
 			spr_glidefall = spr_playerO_fly
-			spr_backflip = spr_player_backflip
-			spr_backflipfall = spr_player_backflipfall
+			spr_backflip = spr_playerO_backflip
+			spr_backflipfall = spr_playerO_backflipfall
 			spr_bounce = spr_player_bounce
 			spr_breakdance = spr_player_breakdance
 			spr_crouchslip = spr_playerO_crouchslip
@@ -51,7 +51,7 @@ function scr_characterspr(){
 			spr_fall = spr_playerO_fall
 			spr_forkstart = spr_playerO_forkstart
 			spr_hurt = spr_player_hurt
-			spr_mach1 = spr_player_mach1
+			spr_mach1 = spr_playerO_mach1
 			spr_mach2 = spr_playerO_mach2
 			spr_mach2fall = spr_playerO_mach2fall
 			spr_mach2jump = spr_playerO_mach2jump

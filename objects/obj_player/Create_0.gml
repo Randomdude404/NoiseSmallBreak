@@ -22,6 +22,7 @@ _xscale = 0
 _player1y = 0
 scr_keycodetokeyname()
 collectfont  = font_add_sprite_ext(spr_collectfont, "0123456789/", true, 0)
+combofont  = font_add_sprite_ext(spr_cookie_combofont, "X0123456789", true, 0)
 global.level = "junkbeach"
 global.firsttime = 1
 ini_open("SaveData.ini")
@@ -53,7 +54,7 @@ timerend = 0
 setNewTime = 0
 hp = 4;
 losehp = 0
-image_speed = 0.35;
+image_speed = 0.4;
 hsp = 0;
 vsp = 0;
 grounded = false;
@@ -158,5 +159,6 @@ set_machsnd = function(sound)
 	else
 		machsnd = noone;
 }
-
+global.combo = 0
+global.combotime = 100
 scr_characterspr()

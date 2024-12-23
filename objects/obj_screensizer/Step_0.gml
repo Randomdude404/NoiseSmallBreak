@@ -15,6 +15,7 @@ else
 
 window_set_cursor(cr);
 gameframe_current_cursor = cr;
+//gameframe_set_fullscreen(0)
 gameframe_alpha = captionalpha;
 gameframe_set_cursor = cr != cr_none;
 gameframe_update();

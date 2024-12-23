@@ -3,7 +3,10 @@
 live_auto_call;
 
 
-window_set_fullscreen(global.fullscreen)
+if (global.fullscreen == 0)
+		gameframe_set_fullscreen(global.fullscreen)
+	else
+		gameframe_set_fullscreen(2)
 window_set_showborder(!global.fullscreen)
 var target = -4
    
@@ -48,7 +51,7 @@ if room == room_editor && global.play != 1
 }
 else
 {
-		target = global.mainplayer;
+	target = global.mainplayer;
 	
 	if room == hub_1
 	{
@@ -77,7 +80,7 @@ else
 		if target.object_index == obj_player
 		{
 			chargecam = Approach(chargecam, target.movespeed * target.xscale * 4, 2);
-			if target.state == states.jump && target.mach2 >= mach2_time && target.vsp < 0
+			if target.state == states.jump && target.mach2 >= mach2_time && target.vsp < 0 && target.sprite_index != target.spr_bounce
 				flycam = Approach(flycam, 100, 2);
 			else
 				flycam = Approach(flycam, -50, target.vsp > 0 ? 4 : 2);

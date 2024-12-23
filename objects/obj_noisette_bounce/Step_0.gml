@@ -15,7 +15,7 @@ switch state
 		player.wallbounceCount = 0
 		player.vsp = -20;
 		player.grounded = false;
-
+		global.combotime = 100
 		state = 0;
 		break;
 }

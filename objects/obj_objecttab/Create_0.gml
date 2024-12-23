@@ -10,4 +10,4 @@ thingy = 1
 thingy2 =1
 touched = 0
 
-objects = 13
+objects = array_length(obj_editor.objects)

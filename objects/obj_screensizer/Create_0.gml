@@ -6,6 +6,7 @@ gameframe_caption_font = fnt_caption;
 gameframe_caption_icon = spr_ico;
 gameframe_caption_icon_margin = 6;
 gameframe_border_width = 2;
+//gameframe_maximize()
 
 if os_type == os_android
 {

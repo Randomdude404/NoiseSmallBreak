@@ -27,12 +27,10 @@ with instance_create(x, y, obj_explosion)
 }
 ds_list_add(global.saveroom, id);
 obj_camera.shakestrength = 10
-if ++global.collect >= 30 && obj_player.hp < 7
-{
-	global.collect = 0;
-	obj_player.hp++;
-}
+
 global.points += 5
+global.combo += 1
+global.combotime = 100
 obj_camera.shake = 1
 obj_player.alarm[3] = 12
 obj_player.alarm[4] = 12

@@ -9,7 +9,7 @@ bg = {
 	y: 0,
 	visible: false,
 	speed: 1,
-	spr: spr_minimenu_bg,
+	spr: bg_moon,
 	index: 0,
 	image_alpha: 1,
 };

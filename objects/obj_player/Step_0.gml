@@ -260,7 +260,7 @@ switch state
 				if (character == 0)
 					sprite_index = spr_mach1;
 				else
-					sprite_index = spr_mach2;
+					sprite_index = spr_mach1;
 			}
 			if image_index >= image_number - 1 && (sprite_index == spr_mach1 or sprite_index == spr_runland or sprite_index == spr_turn)
 				sprite_index = spr_mach2;
@@ -298,6 +298,7 @@ switch state
 			if xscale != move && move != 0
 			{
 				sound_play_3d(sfx_jump, x, y);
+				image_index = 0
 				sprite_index = spr_backflip;
 				vsp = -16;
 				xscale = move;
@@ -310,6 +311,8 @@ switch state
 				if (character == 0)
 				{
 					sound_play_3d(sfx_highjump, x, y);
+					if (sprite_index != spr_glidejumpstart)
+						image_index = 0
 					sprite_index = spr_glidejumpstart;
 					vsp = -16.2;
 					//junk beach skip pawsible?
@@ -332,8 +335,7 @@ switch state
 				
 				if movespeed >= 12
 				{
-					if (sprite_index != spr_mach2jump)
-						image_index = 0;
+					image_index = 0
 					sprite_index = spr_mach2jump;
 					jumpclouds = 10;
 				}
@@ -658,15 +660,18 @@ switch state
 		{
 			if character == 0
 			{
-				sound_play_3d(sfx_wallslide, x, y);
-			
-				state = states.wallslide;
-				if vsp > 0
+				if (sprite_index == spr_dive)
 				{
-				   vsp  = -vsp
-				   vsp -= 2
+					sound_play_3d(sfx_wallslide, x, y);
+			
+					state = states.wallslide;
+					if vsp > 0
+					{
+					   vsp  = -vsp
+					   vsp -= 2
+					}
+					sprite_index = spr_wallslide;
 				}
-				sprite_index = spr_wallslide;
 			}
 		}
 		//N  uh huh!
@@ -741,7 +746,7 @@ switch state
 			sprite_index = spr_bounce;
 			vsp = -19;
 		}
-		if (grounded) && !(place_meeting(x+hsp, y+1, obj_slope))
+		if (grounded)
 		{
 			create_particle(x, y, spr_landcloud);
 			sound_play_3d(sfx_land, x, y);

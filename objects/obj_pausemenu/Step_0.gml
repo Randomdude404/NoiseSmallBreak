@@ -96,8 +96,13 @@ if (index == 5 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(o
 	ini_close();
 	if !(global.fullscreen)
 	    window_set_position(0, 0)
-	window_set_fullscreen(global.fullscreen)
+	
+//	window_enable_borderless_fullscreen(global.fullscreen)
 	window_set_showborder(!global.fullscreen)
+	if (global.fullscreen == 0)
+		gameframe_set_fullscreen(global.fullscreen)
+	else
+		gameframe_set_fullscreen(2)
 }if (index == 6 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) || controllera))
 {
 	global.texturefilter = !global.texturefilter;

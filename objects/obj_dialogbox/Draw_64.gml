@@ -9,6 +9,7 @@ if (draw == true)
 	draw_set_alpha(1)
 	draw_set_color(c_white)
 	draw_set_font(Font3)
+	draw_set_halign(fa_left)
 	if (width == 0)
 		draw_text_ext(220, 540, text, 30, 860)
 }
