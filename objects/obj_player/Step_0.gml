@@ -254,7 +254,7 @@ switch state
 			}
 			
 			xscale = move;
-			if sprite_index != spr_mach1 && sprite_index != spr_mach2 && sprite_index != spr_mach3 && sprite_index != spr_runland && sprite_index != spr_turn
+			if sprite_index != spr_mach1 && sprite_index != spr_mach2 && sprite_index != spr_mach3 && sprite_index != spr_runland && sprite_index != spr_turn && sprite_index != spr_playerO_poundend
 			{
 				image_index = 0;
 				if (character == 0)
@@ -262,7 +262,7 @@ switch state
 				else
 					sprite_index = spr_mach1;
 			}
-			if image_index >= image_number - 1 && (sprite_index == spr_mach1 or sprite_index == spr_runland or sprite_index == spr_turn)
+			if image_index >= image_number - 1 && (sprite_index == spr_mach1 or sprite_index == spr_runland or sprite_index == spr_turn or sprite_index == spr_playerO_poundend)
 				sprite_index = spr_mach2;
 			
 			if mach2 < mach2_time && movespeed <= 12
@@ -275,7 +275,8 @@ switch state
 			else
 			{
 				mach2 = mach2_time;
-				sprite_index = spr_mach3;
+				if (sprite_index != spr_playerO_poundend)
+					sprite_index = spr_mach3;
 				if movespeed < 16
 					movespeed = Approach(movespeed, 16, 0.4);
 				else if movespeed < 19
@@ -374,7 +375,16 @@ switch state
 	case states.jump:
 	case states.bounce:
 		hsp = xscale * movespeed;
-		
+		if (input_buffer_jump && character == 1)
+		{
+			if !(!(global.oldbounce) && sprite_index == spr_bounce)
+			{
+				state = states.pound
+				vsp = -16
+				sound_play_3d(sfx_groundpound, x, y);
+				input_buffer_jump = 0
+			}
+		}
 		if --jumpclouds > 0 && vsp < 0
 		{
 			if ++part_time >= (16 - jumpclouds) / 3
@@ -427,7 +437,7 @@ switch state
 		}
 		else
 		{
-			if obj_player.key_jump && scr_solid(x+(hsp), y)
+			if obj_player.key_jump && scr_solid(x+(hsp), y) && !global.oldbounce
 			{
 				audio_play_sound(sfx_boing, 0, false, 1.2)
 				vsp = -18 + (wallbounceCount*2)
@@ -495,7 +505,7 @@ switch state
 					movespeed = 0;
 				else
 				{
-					if (sprite_index != spr_bounce)
+					if (sprite_index != spr_bounce || global.oldbounce)
 					{
 							sound_play_3d(sfx_wallslide, x, y);
 			
@@ -571,7 +581,7 @@ switch state
 		sprite_index = vsp > 0 ? spr_wallslidedown : spr_wallslide;
 
 		
-		if !place_meeting(x + xscale, y, obj_solid) or move == -xscale
+		if !place_meeting(x + xscale, y, obj_solid)
 		{
 			sprite_index = spr_fall;
 			image_index = 0;
@@ -582,12 +592,16 @@ switch state
 			input_buffer_jump = 0;
 			sound_play_3d(sfx_jump, x, y);
 			
-			//xscale *= -1;
+			if (global.oldbounce)
+				xscale *= -1;
 			movespeed = 10;
 			state = states.jump;
 			audio_play_sound(sfx_boing, 0, false, 1.2)
 			sprite_index = spr_bounce;
-			vsp = -19;
+			if !(global.oldbounce)
+				vsp = -19;
+			else
+				vsp = -14
 		}
 		break;
 	
@@ -644,12 +658,17 @@ switch state
 					{
 						
 						input_buffer_jump = 0;
+						/*
 						sound_play_3d(sfx_highjump, x, y);
 						sprite_index = spr_glidejumpstart;
 						state = states.fly
 						vsp = -15;
 						//junk beach skip pawsible?
 						jumpclouds = 10;
+						*/
+						state = states.pound
+						vsp = -16
+						sound_play_3d(sfx_groundpound, x, y);
 						
 					}
 				}
@@ -668,7 +687,7 @@ switch state
 					if vsp > 0
 					{
 					   vsp  = -vsp
-					   vsp -= 2
+					   vsp += 2
 					}
 					sprite_index = spr_wallslide;
 				}
@@ -717,7 +736,7 @@ switch state
 		{
 			if vsp >= 0
 			{
-				if !(key_down)
+				if (key_jump2)
 					vsp = Approach(vsp, 1, 0.5)
 				else
 					vsp = Approach(vsp, 6, 0.5)
@@ -736,15 +755,13 @@ switch state
 		
 		if (place_meeting(x+hsp, y, obj_solid)) && !(place_meeting(x+hsp, y-5, obj_destroyable)) && !(scr_solid(x, y+10))
 		{
-			sound_play_3d(sfx_jump, x, y);
+			vsp = -movespeed;
+			sound_play_3d(sfx_wallslide, x, y);
 			
-			//xscale *= -1;
-			
-			movespeed = 16;
-			state = states.jump;
-			audio_play_sound(sfx_boing, 0, false, 1.2)
-			sprite_index = spr_bounce;
-			vsp = -19;
+			state = states.wallslide;
+			sprite_index = spr_wallslide;
+			grounded = false;
+			movespeed = 0;
 		}
 		if (grounded)
 		{
@@ -757,9 +774,11 @@ switch state
 		}
 		if (input_buffer_jump)
 		{
+			input_buffer_jump = 0
 			state = states.pound
 			vsp = -16
 			sound_play_3d(sfx_groundpound, x, y);
+			
 		}
 	break
 	case states.pound:
@@ -772,8 +791,14 @@ switch state
 			sound_play_3d(sfx_land, x, y);
 			sound_play_3d(sfx_punch, x, y);
 			state = states.normal;
+			vsp = 0
 			image_index = 0;
-			sprite_index = move != 0 ? spr_runland : spr_idle;
+			sprite_index = spr_playerO_poundend
+			obj_camera.shake = 1
+			obj_camera.shakestrength = 10
+			obj_player.alarm[3] = 12
+			obj_player.alarm[4] = 12
+			gamepad_set_vibration(0, 0.7, 0.7);
 			
 		}
 		if input_buffer_jump && (scr_solid(x+hsp, y))
@@ -781,12 +806,11 @@ switch state
 			input_buffer_jump = 0
 			sound_play_3d(sfx_jump, x, y);
 			
-			//xscale *= -1;
 			movespeed = 10;
 			state = states.jump;
 			audio_play_sound(sfx_boing, 0, false, 1.2)
 			sprite_index = spr_bounce;
-			vsp = -19;
+			vsp = -19
 		}
 		if (move == 0 || move != xscale)
 		{
@@ -859,7 +883,7 @@ else
 
 // spikes
 var spike = instance_nearest(x, y, obj_spike);
-if spike && abs(distance_to_object(spike)) < 1
+if spike && abs(distance_to_object(spike)) < 2
 {
 	if sprite_index == spr_bounce
 	{
@@ -962,20 +986,22 @@ if keyboard_check_pressed(vk_rcontrol)
 if (keyboard_check_pressed(vk_escape) ||gamepad_button_check_pressed(0, gp_start)) && !instance_exists(obj_pausemenu) && room != room_editor && room != rm_changelog
 {
 	audio_pause_all()
+	
+	
     with all 
 	{
 		if object_index != obj_solid && object_index != obj_slope && object_index != obj_platform && object_index != obj_camera && object_index != obj_screensizer
 		   instance_deactivate_object(self)
 	}
-	
 	instance_create(x, y, obj_pausemenu)
 	with obj_pausemenu
 	{
 		pauseScreenshot=sprite_create_from_surface(application_surface, 0, 0, surface_get_width(application_surface), surface_get_height(application_surface), false, false, 0, 0);
+		character = other.character
 	}
     
 }
-if timerend == 1 && setNewTime == 0
+if timerend == 1 && setNewTime == 0 && room != room_editor && room != room_customlevel
 {
        setNewTime = 1
 	   ini_open("SaveData.ini")
@@ -996,6 +1022,10 @@ if timerend == 0
 {
 	setNewTime = 0
 }
+if (sprite_index != spr_longjump)
+	image_speed = 0.4
+else
+	image_speed = 0.35
 sintimer += sinspeed
 cheese_thing += 0.05
 

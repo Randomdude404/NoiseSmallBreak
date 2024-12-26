@@ -85,10 +85,20 @@ scr_player_addslopemomentum = function(acc, dec)
 {
 	with (instance_place(x, y + 1, obj_slope))
 	{
-		if sign(image_xscale) == -sign(other.xscale) && other.movespeed < 19
-			other.movespeed += acc;
-		else if other.movespeed > 12
-			other.movespeed -= dec;
+		if (obj_player.character == 0)
+		{
+			if sign(image_xscale) == -sign(other.xscale) && other.movespeed < 23.5 //seemingly has no/very high speedcap in leaks
+				other.movespeed += acc;
+			else if other.movespeed > 12
+				other.movespeed -= dec;
+		}
+		else
+		{
+			if sign(image_xscale) == -sign(other.xscale) && other.movespeed < 19 //seemingly has no/very high speedcap in leaks
+				other.movespeed += acc;
+			else if other.movespeed > 12
+				other.movespeed -= dec;
+		}
 	}
 }
 scr_hurtplayer = function()
@@ -161,4 +171,5 @@ set_machsnd = function(sound)
 }
 global.combo = 0
 global.combotime = 100
+
 scr_characterspr()

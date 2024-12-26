@@ -1,0 +1,1 @@
+text = "Press DOWN while in the air to dive!"

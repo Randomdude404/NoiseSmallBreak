@@ -136,17 +136,6 @@ else
 		   }
 	}
    }
-if (global.discord_initialized)
-{
-	np_setpresence_more("Small image text", "Large image text", false);
-	var _levelname = ""
-	if (global.level == "junkbeach")
-		_levelname = "in Junk Beach"
-	if (global.level == "moonlight")
-		_levelname = "in Moonlight Madness"
-	if (room == hub_1)
-		_levelname = "in Level Select"
-	np_setpresence(_levelname, "", "spr_player_idle", "spr_player_idle");
-}
+
 view_wport[0] = 224;
 view_hport[0] = 160;

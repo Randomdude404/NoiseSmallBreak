@@ -20,68 +20,97 @@ if room == room_editor
 	}
 	   
 }
-if sprite_index = spr_shuttle_move && backToShuttle != 1
+
+
+if sprite_index = sprmove && backToShuttle != 1
 {
 	speed2 -= 0.2
 }
 else if backToShuttle == 1
 {
-	speed2 = 25
+	if (obj_player.character == 0)
+		speed2 = 25
+	else
+		speed2 = 30
 }
-if sprite_index = spr_shuttle_move && backToShuttle == 1 && scr_solid(x, y)
+if sprite_index = sprmove && backToShuttle == 1 && scr_solid(x, y)
 {
-	instance_destroy()
-	
-	obj_player.x = x
-	obj_player.y = y
-	with obj_player
+	if (obj_player.character == 0)
 	{
-		input_buffer_jump = 0;
-		sound_play_3d(sfx_jump, x, y);
+		instance_destroy()
+		obj_player.x = x
+		obj_player.y = y
+		with obj_player
+		{
+			input_buffer_jump = 0;
+			sound_play_3d(sfx_jump, x, y);
 			
-		//xscale *= -1;
-		movespeed = 7
-	    xscale = other.image_xscale
-		y -= 20
+			//xscale *= -1;
+			movespeed = 7
+		    xscale = other.image_xscale
+			y -= 20
 	
-		state = states.bounce;
+			state = states.bounce;
 		
-		sprite_index = spr_bounce;
-		vsp = -16;
+			sprite_index = spr_bounce;
+			vsp = -16;
+		}
+		instance_create(x, y, obj_explosion)
+		audio_play_sound(sfx_punch, 0, 0)
+		with instance_create(x, y, obj_debris)
+		{
+			sprite_index = spr_shuttle_parts
+			image_index = 0
+			vspeed = random_range(-7, 3)
+			hspeed = random_range(-7, 7)
+		
+		}
+		with instance_create(x, y, obj_debris)
+		{
+			sprite_index = spr_shuttle_parts
+			image_index = 1
+			vspeed = random_range(-7, 7)
+			hspeed = random_range(-7, 7)
+		
+		}
+		with instance_create(x, y, obj_debris)
+		{
+			sprite_index = spr_shuttle_parts
+			image_index = 2
+			vspeed = random_range(-7, 3)
+			hspeed = random_range(-7, 7)
+		
+		}
+		with instance_create(x, y, obj_debris)
+		{
+			sprite_index = spr_shuttle_parts
+			image_index = 3
+			vspeed = random_range(-7, 7)
+			hspeed = random_range(-7, 7)
+		
+		}
 	}
-	instance_create(x, y, obj_explosion)
-	audio_play_sound(sfx_punch, 0, 0)
-	with instance_create(x, y, obj_debris)
+	else
 	{
-		sprite_index = spr_shuttle_parts
-		image_index = 0
-		vspeed = random_range(-7, 3)
-		hspeed = random_range(-7, 7)
-		
-	}
-	with instance_create(x, y, obj_debris)
-	{
-		sprite_index = spr_shuttle_parts
-		image_index = 1
-		vspeed = random_range(-7, 7)
-		hspeed = random_range(-7, 7)
-		
-	}
-	with instance_create(x, y, obj_debris)
-	{
-		sprite_index = spr_shuttle_parts
-		image_index = 2
-		vspeed = random_range(-7, 3)
-		hspeed = random_range(-7, 7)
-		
-	}
-	with instance_create(x, y, obj_debris)
-	{
-		sprite_index = spr_shuttle_parts
-		image_index = 3
-		vspeed = random_range(-7, 7)
-		hspeed = random_range(-7, 7)
-		
+		if !landed
+		{
+			obj_player.visible = true
+			obj_player.x = x
+			obj_player.y = y
+			obj_player.sprite_index = spr_playerO_introland
+			obj_player.state = states.actor
+			speed2 = 0
+			visible = false
+			//instance_create(x, y, obj_explosion)
+			audio_play_sound(sfx_punch, 0, 0)
+			alarm[1] = 50
+			landed = 1
+			with (obj_player)
+			{
+				while (scr_solid(x, y+1))
+					y -= 1
+			}
+		}
 	}
 }
 y += speed2

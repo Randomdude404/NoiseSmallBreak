@@ -40,6 +40,14 @@ for (var i = 0; i < array_length(lay_arr); i++)
           layer_x(lay, ((_cam_x * 0.5)+ bg_scroll3x))
             layer_y(lay, ((_cam_y * 0.5) + bg_scroll3y))
             break
+		 case "Background_junkbeach":
+            layer_x(lay, (_cam_x))
+            layer_y(lay, (_cam_y))
+            break
+		 case "Background_junkbeach_1":
+            layer_x(lay, (_cam_x * 0.75))
+            layer_y(lay, (_cam_y * 0.75)+32)
+            break
 	}
 }
 

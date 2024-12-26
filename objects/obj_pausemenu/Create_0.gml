@@ -13,6 +13,7 @@ _x = 0
 _alpha = 0
 levelid = ""
 index = 1
+character = 0
 //buttons = 3
 distance = 0
 distanceamount = 100

@@ -1,0 +1,1 @@
+text = "If you touch a spike while bouncing, you won't get hurt, and you will bounce upwards instead."

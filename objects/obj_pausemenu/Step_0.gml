@@ -67,18 +67,18 @@ case 2:
 	if index < 1
 	    index = 1
 	//coop
-/*
-if index == 2 && keyboard_check_pressed(vk_right)
+
+if index == 2 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) || controllera) 
 {
-   global.coop = 1
+   global.oldbounce = !global.oldbounce
     audio_play_sound(sfx_select2, 0 ,0)
+	ini_open("settings.ini");
+	// Feather disable once GM1041 YOU FUCKING SUCK FEATHER HOLY SHIT
+	ini_write_real("Settings", "oldbounce", global.oldbounce);
+	ini_close();
 }
-if index == 2 && keyboard_check_pressed(vk_left)
-{
-   global.coop = 0
-    audio_play_sound(sfx_select2, 0 ,0)
-}
-*/
+
+
 if (index == 4 && ((keyboard_check_pressed(vk_enter) || keyboard_check_pressed(ord("Z"))) || controllera))
 {
 	global.performance = !global.performance;

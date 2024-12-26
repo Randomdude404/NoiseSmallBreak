@@ -62,7 +62,7 @@ switch menu
 		
 	case 2:
 		_menuitems = 6
-		_menuitemnames = ["BACK", ("COOP MODE: " + string(global.coop)), "KEY REMAPPING",  $"PERFORMANCE MODE: {global.performance ? "ON" : "OFF"}", ("FULLSCREEN: " + string(global.fullscreen)), ("TEXTURE FILTER: " + string(global.texturefilter))]
+		_menuitemnames = ["BACK", ("OLD BOUNCE: " + string(global.oldbounce)), "KEY REMAPPING",  $"PERFORMANCE MODE: {global.performance ? "ON" : "OFF"}", ("FULLSCREEN: " + string(global.fullscreen)), ("TEXTURE FILTER: " + string(global.texturefilter))]
 		distance = 125
 		draw_set_alpha(1)
 		for (var i = 1; i < (_menuitems+1); i += 1)
@@ -71,8 +71,6 @@ switch menu
 				draw_set_color(c_yellow)
 			else
 				draw_set_color(c_white)
-			if i == 2
-			  draw_set_alpha(0.5)
 			draw_text(_x,distance, array_get(_menuitemnames, i-1))
 			draw_set_alpha(1)
 			distance += distanceamount

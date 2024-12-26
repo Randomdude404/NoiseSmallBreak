@@ -14,8 +14,14 @@ if (room == moonlight_1 || room == testroom_1) && targetDoor == "A"
 		sprite_index = spr_shuttle_move
 		backToShuttle = 1
 		sprite_index = spr_shuttle_move
-		image_yscale = -1
+		if (obj_player.character != 1)
+			image_yscale = -1
 		y -= 700
+		if (obj_player.character == 1 && backToShuttle)
+		{
+			sprmove = spr_playerO_introfall
+			sprite_index = sprmove
+		}
 	}
 	sprite_index = spr_null
 	vsp = 0

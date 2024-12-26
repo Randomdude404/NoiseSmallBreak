@@ -339,6 +339,9 @@ if keyboard_check_pressed(vk_enter)
    global.play = 1
    obj_player.timer = 0
    obj_player.timerend = 0
+   obj_player.state = states.normal
+   obj_player.movespeed = 0
+   obj_player.alarm[0] = 1
    if selected != noone
 	    selected.image_blend = c_white
    selected = noone
@@ -398,6 +401,9 @@ if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_
    global.play = 1
    obj_player.timer = 0
     obj_player.timerend = 0
+	 obj_player.state = states.normal
+   obj_player.movespeed = 0
+   obj_player.alarm[0] = 1
 	if selected != noone
 	    selected.image_blend = c_white
     selected = noone
@@ -413,7 +419,7 @@ if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_
   }
  if (mouse_check_button_pressed(mb_left)) && (position_meeting(device_mouse_x_to_gui(0), device_mouse_y_to_gui(0), obj_objecttab))
   {
-  obj_objecttab.open *= -1
+	  obj_objecttab.open *= -1
  
  
   }
