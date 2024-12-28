@@ -7,6 +7,7 @@ move = 0
 grounded = 0
 helicoptertime = 0
 helicopter = 0
+state2 = states.normal
 interp2 = 0
 vsp = 0
 flash = 1

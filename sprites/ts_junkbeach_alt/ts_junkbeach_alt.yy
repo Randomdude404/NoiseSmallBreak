@@ -2,9 +2,9 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "ts_junkbeach_alt",
-  "bbox_bottom": 723,
+  "bbox_bottom": 790,
   "bbox_left": 32,
-  "bbox_right": 799,
+  "bbox_right": 959,
   "bbox_top": 32,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ab82996f-ef10-43af-8479-e1b4d3f1a371",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"545d8630-33d9-4813-b27f-9d0ba0859bff",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 1280,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"544830c3-20f1-4a2d-b32c-2a543d85afb1","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"354b8afc-4c0b-463c-a7ab-dd5977ecb182","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ab82996f-ef10-43af-8479-e1b4d3f1a371","path":"sprites/ts_junkbeach_alt/ts_junkbeach_alt.yy",},},},"Disabled":false,"id":"d8e9a7d8-36fc-4e50-81bc-48d864aed3f6","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"545d8630-33d9-4813-b27f-9d0ba0859bff","path":"sprites/ts_junkbeach_alt/ts_junkbeach_alt.yy",},},},"Disabled":false,"id":"29fadc57-9c90-4e18-b3b6-260f0b27b8e4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

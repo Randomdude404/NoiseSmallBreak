@@ -7,6 +7,7 @@ if state == 0
 		interp = Approach(interp, 1, 0.01);
 		x = lerp(x, ds_queue_dequeue(queue), interp);
 		y = lerp(y, ds_queue_dequeue(queue), interp);
+		state2 = ds_queue_dequeue(queue)
 	}
 	/*
 	if ds_queue_size(vspqueue) >= 80
@@ -17,7 +18,7 @@ if state == 0
 	*/
 	if instance_exists(obj_player)
 	{
-		ds_queue_enqueue(queue, obj_player.x, obj_player.y);
+		ds_queue_enqueue(queue, obj_player.x, obj_player.y, obj_player.state);
 		//ds_queue_enqueue(vspqueue, obj_player.vsp);
 	}
     
@@ -110,7 +111,7 @@ if x != xprevious
 
 if !grounded && sprite_index != spr_noisette_helistart && sprite_index != spr_noisette_heli && !(helicoptertime > 0)
 {
-	helicoptertime = 30
+	helicoptertime = 20
 }
 if (yprevious) > y
    vsp = -1

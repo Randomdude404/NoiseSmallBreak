@@ -46,7 +46,7 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break
 		 case "Background_junkbeach_1":
             layer_x(lay, (_cam_x * 0.75))
-            layer_y(lay, (_cam_y * 0.75)+32)
+            layer_y(lay, (_cam_y * 0.75)+32+room_height-720)
             break
 	}
 }

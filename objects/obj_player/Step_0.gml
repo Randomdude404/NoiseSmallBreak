@@ -275,7 +275,7 @@ switch state
 			else
 			{
 				mach2 = mach2_time;
-				if (sprite_index != spr_playerO_poundend)
+				if (sprite_index != spr_playerO_poundend && sprite_index != spr_runland)
 					sprite_index = spr_mach3;
 				if movespeed < 16
 					movespeed = Approach(movespeed, 16, 0.4);
@@ -753,15 +753,29 @@ switch state
 		else if movespeed < 19
 				movespeed = Approach(movespeed, 19, 0.1);
 		
-		if (place_meeting(x+hsp, y, obj_solid)) && !(place_meeting(x+hsp, y-5, obj_destroyable)) && !(scr_solid(x, y+10))
+		if (place_meeting(x+hsp, y, obj_solid)) && !(place_meeting(x+hsp, y, obj_destroyable)) && !(scr_solid(x, y+10))
 		{
-			vsp = -movespeed;
-			sound_play_3d(sfx_wallslide, x, y);
+			if (global.oldbounce)
+			{
+				vsp = -movespeed;
+				sound_play_3d(sfx_wallslide, x, y);
 			
-			state = states.wallslide;
-			sprite_index = spr_wallslide;
-			grounded = false;
-			movespeed = 0;
+				state = states.wallslide;
+				sprite_index = spr_wallslide;
+				grounded = false;
+				movespeed = 0;
+			}
+			else
+			{
+				input_buffer_jump = 0
+				sound_play_3d(sfx_jump, x, y);
+			
+				movespeed = 10;
+				state = states.jump;
+				audio_play_sound(sfx_boing, 0, false, 1.2)
+				sprite_index = spr_bounce;
+				vsp = -19
+			}
 		}
 		if (grounded)
 		{
@@ -785,17 +799,19 @@ switch state
 		sprite_index = spr_playerO_poundstart
 		hsp = xscale * movespeed;
 		vsp += 0.3
-		if (scr_solid(x, y+1)) && !(place_meeting(x, y+vsp, obj_destroyable))
+		if (scr_solid(x, y+1)) && !(place_meeting(x, y+1, obj_destroyable))
 		{
+			
 			create_particle(x, y, spr_landcloud);
 			sound_play_3d(sfx_land, x, y);
 			sound_play_3d(sfx_punch, x, y);
 			state = states.normal;
-			vsp = 0
+			
 			image_index = 0;
 			sprite_index = spr_playerO_poundend
 			obj_camera.shake = 1
 			obj_camera.shakestrength = 10
+			vsp = 0
 			obj_player.alarm[3] = 12
 			obj_player.alarm[4] = 12
 			gamepad_set_vibration(0, 0.7, 0.7);
@@ -838,6 +854,9 @@ if grounded && state == states.normal
 		set_machsnd(sfx_mach1);
 	else
 		set_machsnd(noone);
+	if (sprite_index == spr_runland)
+		set_machsnd(noone)
+		
 }
 else
 	set_machsnd(noone);
@@ -845,7 +864,7 @@ else
 if state != states.jump && state != states.normal
 	mach2 = 0;
 
-if state == states.wallslide or (state == states.jump && mach2 >= mach2_time && vsp < 0 && sprite_index != spr_bounce)
+if state == states.wallslide or (state == states.jump && mach2 >= mach2_time && sprite_index != spr_fall && vsp < 0 && sprite_index != spr_bounce)
 	grav = 0.25;
 else
 	grav = 0.5;
@@ -883,7 +902,7 @@ else
 
 // spikes
 var spike = instance_nearest(x, y, obj_spike);
-if spike && abs(distance_to_object(spike)) < 2
+if spike && abs(distance_to_object(spike)) < 5
 {
 	if sprite_index == spr_bounce
 	{

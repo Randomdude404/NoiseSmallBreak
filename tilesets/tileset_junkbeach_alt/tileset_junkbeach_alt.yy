@@ -19,7 +19,7 @@
     "name": "ts_junkbeach_alt",
     "path": "sprites/ts_junkbeach_alt/ts_junkbeach_alt.yy",
   },
-  "spriteNoExport": false,
+  "spriteNoExport": true,
   "textureGroupId": {
     "name": "Default",
     "path": "texturegroups/Default",
