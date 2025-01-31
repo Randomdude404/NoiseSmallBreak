@@ -14,7 +14,7 @@ ini_close();
 // Game ver is now obj_gmconsole.con.strings.game_version
 // NOTE: 0.03.00.00 removed obj_gmconsole.con.strings.game_version
 global.game_version = "3.0";
-global.trailermode = 1
+global.trailermode = 0
 
 
 // Custom exception handler
