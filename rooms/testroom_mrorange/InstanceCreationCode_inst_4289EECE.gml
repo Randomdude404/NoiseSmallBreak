@@ -1,0 +1,1 @@
+text = "Take note that Mr. Orange will do a groundpound when trying to longjump, and that he does not have a dive (however he can do a slide in the air when pressing down, if bouncing), since the groundpound takes its place."

@@ -1,6 +1,6 @@
 live_auto_call;
 
-if !hp <= 0 && !(room == room_editor && global.play == 0) && !instance_exists(obj_pausemenu) && room != hub_1 && room != rm_changelog
+if !hp <= 0 && !global.trailermode && !(room == room_editor && global.play == 0) && !instance_exists(obj_pausemenu) && room != hub_1 && room != rm_changelog
 {
 	for(var i = 0; i < max(hp, 4); i++)
 	{	
@@ -45,21 +45,23 @@ if !hp <= 0 && !(room == room_editor && global.play == 0) && !instance_exists(ob
 	draw_sprite(spr_teacup, 0, 128+42, 152)
 	draw_set_font(fnt_console_big)
 	draw_set_color(c_white)
+	var _maxtime = 0
+	if (global.level == "junkbeach")
+		_maxtime = 50
+	else
+		_maxtime = 220
 	if global.timeattack
 	{
-		if global.level == "junkbeach"
-		{
-		if timer >= 50
-		   draw_set_color(c_red)
-		}
-		else
-		   if timer >= 220
+		   if timer >= _maxtime
 		   draw_set_color(c_red)
 	}
 
 	if timerend == 1
 	   draw_set_color(c_green)
-	draw_text(640, 10, timer);
+	if !(global.timeattack)
+		draw_text(640, 10, timer);
+	else
+		draw_text(640, 10, string(timer)+"/"+string(_maxtime));
 	draw_set_color(c_white)
 	draw_set_font(collectfont)
 	//draw_text(150, 145, global.points);

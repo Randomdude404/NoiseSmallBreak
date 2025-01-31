@@ -11,4 +11,5 @@ if (global.combo > 0)
 		global.combotime = 0	
 	}
 }
-
+if (room == Initroom)
+	vsp = 0

@@ -18,7 +18,6 @@ if _cheesebehind
 		draw_sprite(spr_hotwing, 0, x + cos(cheese_thing)*50, y + 10 + sin(cheese_thing) * 8)
 	draw_sprite_ext(sprite_index, -1, x, y, image_xscale * xscale, image_yscale * yscale, image_angle, image_blend, image_alpha);
 }
-draw_text(x, y - 150, vsp)
 if atepig
 	draw_text(x, y - 50,  pigtimer)
 

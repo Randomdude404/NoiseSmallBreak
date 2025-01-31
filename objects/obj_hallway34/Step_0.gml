@@ -98,6 +98,8 @@ if sprite_index = sprmove && backToShuttle == 1 && scr_solid(x, y)
 			obj_player.x = x
 			obj_player.y = y
 			obj_player.sprite_index = spr_playerO_introland
+			obj_player.image_index = 0
+			obj_player.xscale = 1
 			obj_player.state = states.actor
 			speed2 = 0
 			visible = false

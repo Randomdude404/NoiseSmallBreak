@@ -1,1 +1,1 @@
-text = "This is Mr. Orange. He plays a bit differently compared to The Noise. Instead of gliding when he jumps at Mach 3, like Noise, he flies. Give it a go!"
+text = "This is Mr. Orange. He plays a bit differently compared to The Noise. Instead of gliding when he jumps at Mach 3, he flies forward. Give it a go!"

@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "Sprite102",
-  "bbox_bottom": 1021,
+  "bbox_bottom": 729,
   "bbox_left": 0,
   "bbox_right": 1167,
   "bbox_top": 0,
@@ -13,20 +13,20 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"3f07abe5-f583-486e-8e3a-01b2d9e5a64c",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"f6de23ae-9800-46ee-9590-71cc5f6d2f90",},
   ],
   "gridX": 0,
   "gridY": 0,
-  "height": 1022,
+  "height": 730,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"54c304ee-03ac-43f1-9756-0674c33cce8d","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"eb7eeade-e1a7-430a-94a0-6f19b9e750c4","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
   "parent": {
-    "name": "Rooms",
-    "path": "folders/Rooms.yy",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"3f07abe5-f583-486e-8e3a-01b2d9e5a64c","path":"sprites/Sprite102/Sprite102.yy",},},},"Disabled":false,"id":"b6ac4952-f56e-4ff4-85d6-e533e8dc241a","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"f6de23ae-9800-46ee-9590-71cc5f6d2f90","path":"sprites/Sprite102/Sprite102.yy",},},},"Disabled":false,"id":"1d7519a9-b72e-4b48-a57e-d6655ff566b9","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

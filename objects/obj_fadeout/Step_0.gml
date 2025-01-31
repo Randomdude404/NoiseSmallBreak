@@ -1,5 +1,6 @@
 if fadeout
 {
+	
 	image_alpha = Approach(image_alpha, 1, 0.1);
 	if image_alpha >= 1
 	{
@@ -9,7 +10,9 @@ if fadeout
 		{
 			with obj_player
 			{
+				obj_player.lastTargetRoom = room
 				room_goto(targetRoom);
+				
 		
 			}	
 		}
@@ -40,8 +43,8 @@ if fadeout
 			else
 			{
 				with obj_player
-			room_goto(targetRoom);
-			audio_stop_all()
+				room_goto(targetRoom);
+				audio_stop_all()
 			}
 		
 		}
@@ -50,6 +53,7 @@ if fadeout
 }
 else
 {
+	
 	image_alpha = Approach(image_alpha, 0, 0.1);
 	if room == room_editor && global.play == 1
 	{

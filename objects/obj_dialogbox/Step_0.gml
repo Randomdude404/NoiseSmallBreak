@@ -50,3 +50,5 @@ if retract == true
 	   retract = false
 	}
 }
+if (global.trailermode)
+	draw = false

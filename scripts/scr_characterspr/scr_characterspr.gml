@@ -50,7 +50,7 @@ function scr_characterspr(){
 			spr_dive = spr_player_dive
 			spr_fall = spr_playerO_fall
 			spr_forkstart = spr_playerO_forkstart
-			spr_hurt = spr_player_hurt
+			spr_hurt = spr_playerO_hurt
 			spr_mach1 = spr_playerO_mach1
 			spr_mach2 = spr_playerO_mach2
 			spr_mach2fall = spr_playerO_mach2fall

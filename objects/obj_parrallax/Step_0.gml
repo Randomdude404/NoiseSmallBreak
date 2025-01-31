@@ -1,10 +1,11 @@
 /// @description Insert description here
 // You can write your code in this editor
-var _cam_x = camera_get_view_x(view_camera[0])
-var _cam_y = camera_get_view_y(view_camera[0])
+
 var lay_arr = layer_get_all()
 for (var i = 0; i < array_length(lay_arr); i++)
 {
+	var _cam_x = camera_get_view_x(view_camera[0])
+	var _cam_y = camera_get_view_y(view_camera[0])
     var lay = lay_arr[i]
     var lay_name = layer_get_name(lay)
     switch lay_name
@@ -29,7 +30,7 @@ for (var i = 0; i < array_length(lay_arr); i++)
 		case "Assets_Parrallax0Scroll":
 		 
             layer_x(lay, ((_cam_x * 0.1)+ bg_scroll2x))
-            layer_y(lay, ((_cam_y * 0.1) + bg_scroll2y))
+            layer_y(lay, ((_cam_y * 0.1) + bg_scroll2y) + 100)
 			bg_scroll2x += layer_get_hspeed(lay)
             bg_scroll2y += layer_get_vspeed(lay)
             break
@@ -46,7 +47,8 @@ for (var i = 0; i < array_length(lay_arr); i++)
             break
 		 case "Background_junkbeach_1":
             layer_x(lay, (_cam_x * 0.75))
-            layer_y(lay, (_cam_y * 0.75)+32+room_height-720)
+			test = ((_cam_y * 0.75) + layer_get_vspeed(lay))
+            layer_y(lay, test)
             break
 	}
 }

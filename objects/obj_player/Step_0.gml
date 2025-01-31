@@ -31,7 +31,7 @@ if room == hub_1
    timer = 0
    timerend = 0  
 }
-if (keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)) && room != room_customlevel  && room != room_editor
+if (keyboard_check_pressed(ord("T")) || gamepad_button_check(0, gp_select)) && room == hub_1
    global.timeattack = (global.timeattack ? 0 : 1)
 if gamepad_is_connected(0)
 {
@@ -1050,3 +1050,8 @@ cheese_thing += 0.05
 
 noiseicon_speed += 0.4
 
+if (room == room_editor || room == room_customlevel)
+{
+	global.level = "custom"
+	global.timeattack = 0
+}

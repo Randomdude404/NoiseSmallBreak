@@ -1,1 +1,0 @@
-text = "Thats all ya need to know. Off you go now!"

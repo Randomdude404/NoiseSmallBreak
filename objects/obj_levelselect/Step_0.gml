@@ -71,7 +71,7 @@ if zoom > 0.5 && selectedObj = obj_planet2
 	zoom -= 0.0035
 }
 obj_camera.zoom = zoom
-if obj_player.key_jump2
+if obj_player.key_jump
 {
 	
 	var _targetRoom = (global.selectedlevel == 0 ? testroom_1 : moonlight_1)
@@ -116,3 +116,27 @@ if (obj_player.key_up) && !key_up && !MrOrange_unlockable
 
 if !obj_player.key_up
 	   key_up = false
+if (keyboard_check_pressed(ord("O")))
+{
+	var _i = 0
+	while (room_exists(_i))
+	{
+		if file_delete(room_get_name(_i) + "_0" + ".sav")
+		{
+			with (instance_create(x, y, obj_popuptext))
+			{
+				text = "DELETED " + room_get_name(_i) + "_0" + ".sav"
+				array_push(global.textList, id)
+			}
+		}
+		else
+		{
+			with (instance_create(x, y, obj_popuptext))
+			{
+				text = "FAILED TO DELETE " + room_get_name(_i) + "_0" + ".sav"
+				array_push(global.textList, id)
+			}
+		}
+		_i += 1
+	}
+}

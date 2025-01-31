@@ -1,1 +1,1 @@
-text = "While flying, press Z to do a ground-pound."
+text = "If you press Z while in the air, you will do a groundpound that can also act as a double-jump."

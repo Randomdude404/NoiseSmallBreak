@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 0,
   "conversionMode": 0,
-  "duration": 163.631,
+  "duration": 185.78285,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "mu_placeholder.mp3",
   "type": 0,
-  "volume": 0.39,
+  "volume": 0.35,
 }

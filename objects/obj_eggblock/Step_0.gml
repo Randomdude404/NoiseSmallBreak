@@ -6,6 +6,12 @@ if canpass == 1
 	sprite_index = noone
 //	ds_list_add(global.saveroom, id);
 }
+else
+{
+	image_alpha = 1
+	sprite_index = spr_eggbloz
+	
+}
 
 
 

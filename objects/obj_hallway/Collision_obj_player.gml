@@ -2,6 +2,7 @@
 {
 	targetRoom = other.targetRoom;
 	targetDoor = other.targetDoor;
+	
 	if targetRoom == testroom_1 && targetDoor = "X"
 	{
 	  obj_player.timerend = 1

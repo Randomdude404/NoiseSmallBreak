@@ -59,7 +59,7 @@ hsp = 0;
 vsp = 0;
 grounded = false;
 grav = 0.5;
-state = states.normal;
+state = states.actor;
 hsp_carry = 0;
 vsp_carry = 0;
 platformid = noone;
@@ -79,6 +79,7 @@ verticalpos = 0;
 verticalspd = 0;
 
 targetRoom = 0;
+lastTargetRoom = 0;
 targetDoor = "A";
 
 scr_player_addslopemomentum = function(acc, dec)

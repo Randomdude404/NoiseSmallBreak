@@ -1,14 +1,31 @@
 /// @description Insert description here
 // You can write your code in this editor
-if (keyboard_check_pressed(ord("I")))
+var _do = 0
+if (instance_exists(obj_fadeout))
 {
-	var _ghostdata = get_string("yes", "")
-	if is_string(_ghostdata)
-		ghostdata = json_parse(_ghostdata)
-	replaying = 1
-	i = 0
-	i2 = 0
+	if (obj_fadeout.fadeout == false) && !set && global.timeattack && room != hub_1 && !obj_player.timerend
+	{
+		_do = 1
+		set = 1
+	}
 }
+else
+	set = 0
+if (keyboard_check_pressed(ord("I"))) || _do
+{
+	
+		var _buffer = buffer_load(room_get_name(room) + "_" + string(obj_player.character) + ".sav");
+		if (buffer_exists(_buffer))
+		{
+				var _json = buffer_read(_buffer, buffer_string)
+			    ghostdata = json_parse(_json);
+				alarm[1] = 20
+				i = 0
+				i2 = 0
+			
+		}
+}
+
 if (replaying)
 {
 	if (i <= 0)

@@ -90,7 +90,7 @@ else
 		}
 	
 		if room != desertbus
-		camx = clamp(camx, 0, room_width - CAMW);
+			camx = clamp(camx, 0, room_width - CAMW);
 	
 	
 		camy = clamp(camy, 0, room_height - CAMH);

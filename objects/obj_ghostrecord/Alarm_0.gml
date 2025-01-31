@@ -8,7 +8,11 @@ if iswriting
 	if i >= 5000
 	{
 		iswriting = 0
-		clipboard_set_text(json_stringify(ghostdata, 1))
+		var _json = json_stringify(ghostdata)
+		var _buffer = buffer_create(string_byte_length(_json), buffer_fixed, 1);
+		buffer_write(_buffer, buffer_text, _json);
+		buffer_save(_buffer, room_get_name(room) + ".sav");
+		buffer_delete(_buffer);   
 	}
 }
 

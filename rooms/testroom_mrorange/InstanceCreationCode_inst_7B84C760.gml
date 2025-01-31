@@ -1,0 +1,1 @@
+text = "As you might have seen previously, when you hit a wall while flying, you will do a fast slide up the wall (if 'Old Bounce' is enabled. If it is not, you will do a bounce up the wall instead)."

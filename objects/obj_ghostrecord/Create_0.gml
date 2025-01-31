@@ -4,6 +4,8 @@ ghostdata = []
 iswriting = 0
 //alarm[0] = room_speed * 0.5
 i = 0
+set = 0
+set2 = 0
 
 
 
