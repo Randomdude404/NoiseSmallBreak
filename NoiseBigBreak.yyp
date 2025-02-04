@@ -280,6 +280,7 @@
     {"id":{"name":"spr_player_dive","path":"sprites/spr_player_dive/spr_player_dive.yy",},},
     {"id":{"name":"GMLive","path":"scripts/GMLive/GMLive.yy",},},
     {"id":{"name":"gameframe_native","path":"extensions/gameframe_native/gameframe_native.yy",},},
+    {"id":{"name":"spr_speedbar_noise_run","path":"sprites/spr_speedbar_noise_run/spr_speedbar_noise_run.yy",},},
     {"id":{"name":"sfx_mach1","path":"sounds/sfx_mach1/sfx_mach1.yy",},},
     {"id":{"name":"obj_technicaldifficulty","path":"objects/obj_technicaldifficulty/obj_technicaldifficulty.yy",},},
     {"id":{"name":"obj_spike","path":"objects/obj_spike/obj_spike.yy",},},

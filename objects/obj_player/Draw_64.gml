@@ -28,18 +28,18 @@ if !hp <= 0 && !global.trailermode && !(room == room_editor && global.play == 0)
 	
 	draw_sprite(spr_speedbar_bar, 0, 192, 128)
 	
-	var _sprite = spr_player_idle
+	var _sprite = spr_speedbar_noise_slide
 	var _noiseicon_x = (movespeed / 16) * 256
 	if _noiseicon_x > 256
 	   _noiseicon_x = 256
 	if lasthealthbar_x < _noiseicon_x
-		_sprite = spr_mach3
+		_sprite = spr_speedbar_noise_run
 	if lasthealthbar_x > _noiseicon_x
 		_sprite = spr_speedbar_noise_slide
 	if lasthealthbar_x == _noiseicon_x && _noiseicon_x != 0
-		_sprite = spr_mach3
+		_sprite = spr_speedbar_noise_run
 	else if _noiseicon_x == 0
-		_sprite = spr_idle
+		_sprite = spr_speedbar_noise_slide
 	lasthealthbar_x = _noiseicon_x
 	draw_sprite(_sprite, noiseicon_speed, 32 + _noiseicon_x, 112)
 	draw_sprite(spr_teacup, 0, 128+42, 152)

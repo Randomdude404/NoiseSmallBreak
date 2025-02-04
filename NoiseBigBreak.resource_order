@@ -235,6 +235,7 @@
     {"name":"rm_changelog","order":20,"path":"rooms/rm_changelog/rm_changelog.yy",},
     {"name":"spr_player_dive","order":13,"path":"sprites/spr_player_dive/spr_player_dive.yy",},
     {"name":"GMLive","order":4,"path":"scripts/GMLive/GMLive.yy",},
+    {"name":"spr_speedbar_noise_run","order":79,"path":"sprites/spr_speedbar_noise_run/spr_speedbar_noise_run.yy",},
     {"name":"sfx_mach1","order":3,"path":"sounds/sfx_mach1/sfx_mach1.yy",},
     {"name":"obj_technicaldifficulty","order":17,"path":"objects/obj_technicaldifficulty/obj_technicaldifficulty.yy",},
     {"name":"obj_spike","order":3,"path":"objects/obj_spike/obj_spike.yy",},
