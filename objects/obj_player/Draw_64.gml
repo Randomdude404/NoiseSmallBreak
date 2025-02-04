@@ -35,7 +35,7 @@ if !hp <= 0 && !global.trailermode && !(room == room_editor && global.play == 0)
 	if lasthealthbar_x < _noiseicon_x
 		_sprite = spr_mach3
 	if lasthealthbar_x > _noiseicon_x
-		_sprite = spr_crouchslip
+		_sprite = spr_speedbar_noise_slide
 	if lasthealthbar_x == _noiseicon_x && _noiseicon_x != 0
 		_sprite = spr_mach3
 	else if _noiseicon_x == 0
