@@ -84,6 +84,7 @@
     {"id":{"name":"mu_editor","path":"sounds/mu_editor/mu_editor.yy",},},
     {"id":{"name":"spr_cloudeffect","path":"sprites/spr_cloudeffect/spr_cloudeffect.yy",},},
     {"id":{"name":"spr_player_forkstart","path":"sprites/spr_player_forkstart/spr_player_forkstart.yy",},},
+    {"id":{"name":"new_1","path":"rooms/new_1/new_1.yy",},},
     {"id":{"name":"sfx_stop","path":"sounds/sfx_stop/sfx_stop.yy",},},
     {"id":{"name":"spr_playerO_turn","path":"sprites/spr_playerO_turn/spr_playerO_turn.yy",},},
     {"id":{"name":"spr_playerO_forkstart","path":"sprites/spr_playerO_forkstart/spr_playerO_forkstart.yy",},},
@@ -517,6 +518,7 @@
     {"roomId":{"name":"moonlight_6","path":"rooms/moonlight_6/moonlight_6.yy",},},
     {"roomId":{"name":"moonlight_7","path":"rooms/moonlight_7/moonlight_7.yy",},},
     {"roomId":{"name":"testroom_mrorange","path":"rooms/testroom_mrorange/testroom_mrorange.yy",},},
+    {"roomId":{"name":"new_1","path":"rooms/new_1/new_1.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

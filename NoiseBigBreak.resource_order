@@ -52,6 +52,7 @@
     {"name":"mu_editor","order":31,"path":"sounds/mu_editor/mu_editor.yy",},
     {"name":"spr_cloudeffect","order":3,"path":"sprites/spr_cloudeffect/spr_cloudeffect.yy",},
     {"name":"spr_player_forkstart","order":27,"path":"sprites/spr_player_forkstart/spr_player_forkstart.yy",},
+    {"name":"new_1","order":30,"path":"rooms/new_1/new_1.yy",},
     {"name":"sfx_stop","order":4,"path":"sounds/sfx_stop/sfx_stop.yy",},
     {"name":"spr_playerO_turn","order":42,"path":"sprites/spr_playerO_turn/spr_playerO_turn.yy",},
     {"name":"spr_playerO_forkstart","order":48,"path":"sprites/spr_playerO_forkstart/spr_playerO_forkstart.yy",},
