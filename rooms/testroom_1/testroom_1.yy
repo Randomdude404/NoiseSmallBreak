@@ -53,7 +53,6 @@
     {"name":"inst_B83F8EE_1","path":"rooms/testroom_1/testroom_1.yy",},
     {"name":"inst_9DA4406_1","path":"rooms/testroom_1/testroom_1.yy",},
     {"name":"inst_3421AFCD_1","path":"rooms/testroom_1/testroom_1.yy",},
-    {"name":"inst_36D8ABF0_1","path":"rooms/testroom_1/testroom_1.yy",},
     {"name":"inst_21EE11F7","path":"rooms/testroom_1/testroom_1.yy",},
     {"name":"inst_739B0AAA","path":"rooms/testroom_1/testroom_1.yy",},
     {"name":"inst_7932F236","path":"rooms/testroom_1/testroom_1.yy",},
@@ -93,6 +92,7 @@
     {"name":"inst_27668F88","path":"rooms/testroom_1/testroom_1.yy",},
     {"name":"inst_2F0E7439","path":"rooms/testroom_1/testroom_1.yy",},
     {"name":"inst_28ADA7AD","path":"rooms/testroom_1/testroom_1.yy",},
+    {"name":"inst_36D8ABF0_1","path":"rooms/testroom_1/testroom_1.yy",},
   ],
   "isDnd": false,
   "layers": [

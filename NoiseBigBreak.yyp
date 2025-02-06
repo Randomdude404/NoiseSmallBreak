@@ -231,6 +231,7 @@
     {"id":{"name":"mu_smb","path":"sounds/mu_smb/mu_smb.yy",},},
     {"id":{"name":"spr_eggopp_idle","path":"sprites/spr_eggopp_idle/spr_eggopp_idle.yy",},},
     {"id":{"name":"bg_clouds2","path":"sprites/bg_clouds2/bg_clouds2.yy",},},
+    {"id":{"name":"new_2","path":"rooms/new_2/new_2.yy",},},
     {"id":{"name":"obj_savehitbox","path":"objects/obj_savehitbox/obj_savehitbox.yy",},},
     {"id":{"name":"GMLive_vm_call","path":"scripts/GMLive_vm_call/GMLive_vm_call.yy",},},
     {"id":{"name":"moonlight_1","path":"rooms/moonlight_1/moonlight_1.yy",},},
@@ -519,6 +520,7 @@
     {"roomId":{"name":"moonlight_7","path":"rooms/moonlight_7/moonlight_7.yy",},},
     {"roomId":{"name":"testroom_mrorange","path":"rooms/testroom_mrorange/testroom_mrorange.yy",},},
     {"roomId":{"name":"new_1","path":"rooms/new_1/new_1.yy",},},
+    {"roomId":{"name":"new_2","path":"rooms/new_2/new_2.yy",},},
   ],
   "templateType": null,
   "TextureGroups": [

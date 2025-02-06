@@ -78,7 +78,7 @@
     "visibleRange": null,
     "volume": 1.0,
     "xorigin": 98,
-    "yorigin": 119,
+    "yorigin": 117,
   },
   "swatchColours": null,
   "swfPrecision": 2.525,
